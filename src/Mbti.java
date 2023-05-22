@@ -52,9 +52,9 @@ public class Mbti {
         List<String>thinkingFeeling = new ArrayList<>();
         List<String>judgingPerceptive = new ArrayList<>();
         Scanner userInput = new Scanner(System.in);
-        String[] userOption = new String[test.length];
-        for (int index = 0; index < test.length; ) {
-            System.out.println(Arrays.deepToString(test[index]));
+        String[] userOption = new String[personalityTest.length];
+        for (int index = 0; index < personalityTest.length; ) {
+            System.out.println(Arrays.deepToString(personalityTest[index]));
             System.out.print("Choose either 'A', or 'a' or 'B' or 'b "+(index+1)+" : ");
             String userChoice = userInput.next();
             if (userChoice.equalsIgnoreCase("a") || userChoice.equalsIgnoreCase("b")) {
@@ -82,6 +82,11 @@ public class Mbti {
         for (String jf:judgingPerceptive){if (jf.equalsIgnoreCase("a"))aJF++;
         else bJF++;
         }
+        System.out.println(sensingIntuitive);
+        System.out.println(thinkingFeeling);
+        System.out.println(judgingPerceptive);
+        System.out.println(extrovertedIntroverted);
+        System.out.println(Arrays.toString(userOption));
     }
     public void setPersonalityTest(String[][] test){
     }
