@@ -88,6 +88,4 @@ public class Mbti {
         System.out.println(extrovertedIntroverted);
         System.out.println(Arrays.toString(userOption));
     }
-    public void setPersonalityTest(String[][] test){
-    }
 }
