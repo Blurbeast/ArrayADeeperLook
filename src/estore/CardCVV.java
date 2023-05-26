@@ -1,20 +1,22 @@
 package estore;
 
+import java.time.YearMonth;
+
 public class CardCVV {
-    private String expireMonthAndYear;
+    private YearMonth expireMonthAndYear;
     private String cardNumber;
     private String cardOwnerName;
     private  CardType cardType;
 
-    public CardCVV(String expireMonthAndYear, String cardNumber, String cardOwnerName, CardType cardType) {
+    public CardCVV(YearMonth expireMonthAndYear, String cardNumber, String cardOwnerName, CardType cardType) {
         this.expireMonthAndYear = expireMonthAndYear;
         this.cardNumber = cardNumber;
         this.cardOwnerName = cardOwnerName;
         this.cardType = cardType;
     }
 
-    public String getExpireMonthAndYear() {return expireMonthAndYear;}
-    public void setExpireMonthAndYear(String expireMonthAndYear) {this.expireMonthAndYear = expireMonthAndYear;}
+    public YearMonth getExpireMonthAndYear() {return expireMonthAndYear;}
+    public void setExpireMonthAndYear(YearMonth expireMonthAndYear) {this.expireMonthAndYear = expireMonthAndYear;}
     public String getCardNumber() {return cardNumber;}
     public void setCardNumber(String cardNumber) {this.cardNumber = cardNumber;}
     public String getCardOwnerName() {return cardOwnerName;}

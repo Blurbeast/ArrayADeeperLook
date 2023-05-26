@@ -1,2 +1,5 @@
-package runningTest;public class Assertions {
+package runningTest;
+
+public class Assertions {
+    
 }
