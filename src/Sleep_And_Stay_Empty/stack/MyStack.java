@@ -1,4 +1,4 @@
-package chichi.stack;
+package Sleep_And_Stay_Empty.stack;
 
 public class MyStack {
     private int counter;

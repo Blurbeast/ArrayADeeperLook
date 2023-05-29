@@ -1,9 +1,7 @@
-package chichi.stack;
+package Sleep_And_Stay_Empty.stack;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 

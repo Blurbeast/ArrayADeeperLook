@@ -1,4 +1,4 @@
-package chichi;
+package Sleep_And_Stay_Empty;
 
 public class Multiplication {
     public static int productOfTwoNumbers(int firstNumber, int secondNumber) {

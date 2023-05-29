@@ -1,6 +1,4 @@
-package chichi;
-
-import java.util.Arrays;
+package Sleep_And_Stay_Empty;
 
 public class DoubleArray {
     public static int[] doubleArray(int[] array){

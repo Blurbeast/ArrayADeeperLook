@@ -1,12 +1,11 @@
-package chichi;
+package Sleep_And_Stay_Empty;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-import static chichi.DoubleArray.doubleArray;
+import static Sleep_And_Stay_Empty.DoubleArray.doubleArray;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DoubleArrayTest {
