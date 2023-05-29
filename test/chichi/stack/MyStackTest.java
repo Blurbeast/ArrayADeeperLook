@@ -44,4 +44,20 @@ public class MyStackTest {
         String stack = myStack.pop();
         assertEquals("Epe",stack);
     }
+    @Test public void elementAtTheTopOFTheStackCanBEGotten(){
+        myStack.push("Ope");
+        myStack.push("Epe");
+        myStack.push("Ope");
+        myStack.push("Epe");
+        myStack.push("Ope");
+        assertEquals("Ope", myStack.peek());
+    }
+//    @Test public void elementCanNotBeAddedIfStackIsFull(){
+//        myStack.push("Ope");
+//        myStack.push("Epe");
+//        myStack.push("Ope");
+//        myStack.push("Epe");
+//        myStack.push("Ope");
+//        assertThrows()
+//    }
 }
