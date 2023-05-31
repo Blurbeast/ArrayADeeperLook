@@ -57,11 +57,10 @@ public class ListArrayImplementation {
         String[] newArray;
         newArray = elements;
         for (int index = 0; index < newArray.length; index++) {
-            if (newArray[index].equals(element)) return index;
+            if (newArray[index].equals(element)) {return index;}
         }
-        return 0;
+        return -1;
     }
-
     public boolean contains(String element) {
         String[] newArray;
         newArray = elements;

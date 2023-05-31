@@ -131,5 +131,4 @@ class ListArrayImplementationTest {
         assertFalse(listArrayImplementation.isEmpty());
         assertFalse(listArrayImplementation.contains("Tayo"));
     }
-
 }
