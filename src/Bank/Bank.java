@@ -17,7 +17,7 @@ public class Bank {
             if (account.getAccountNumber().equals(accountNumber)) {account.deposit(amount);}
         }
     }
-    public Account findAccountByAccountNumber(String accountNumber){
+    private Account findAccountByAccountNumber(String accountNumber){
         for (Account account : accounts) if (account.getAccountNumber().equals(accountNumber)) return account;
         return null;
     }
@@ -27,5 +27,10 @@ public class Bank {
     public void transferFromAccount(String senderAccountNum, String receiverAccountNum, int amount, String pin) {
         withdrawFromAccount(senderAccountNum, amount, pin);
         depositToAccount(receiverAccountNum, amount);
+    }
+    public int checkBalanceViaBank(String accountNumber, String password) {
+        Account account = findAccountByAccountNumber(accountNumber);
+        assert account != null;
+        return account.checkBalance(password);
     }
 }
