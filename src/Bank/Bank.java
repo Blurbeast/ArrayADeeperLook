@@ -28,6 +28,11 @@ public class Bank {
         withdrawFromAccount(senderAccountNum, amount, pin);
         depositToAccount(receiverAccountNum, amount);
     }
+    private String checkIfAccountExist(String receiverAccount){
+        for (Account account : accounts) if (account.getAccountNumber().equals(receiverAccount))
+        return null;
+        return receiverAccount;
+    }
     public int checkBalanceViaBank(String accountNumber, String password) {
         Account account = findAccountByAccountNumber(accountNumber);
         assert account != null;

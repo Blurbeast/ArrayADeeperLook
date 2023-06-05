@@ -60,9 +60,11 @@ public class BankTest {
     @Test public void bankCanTransferAndDepositToAnotherAccountThroughAccount(){
         myBank.registerNewCustomer("ope", "Odion", "2200");
         myBank.registerNewCustomer("ope", "Odion", "3030");
+        myBank.registerNewCustomer("ope", "Odion", "3030");
         myBank.depositToAccount("2334455661", 2000);
         myBank.transferFromAccount("2334455661", "2334455660", 500, "3030");
         assertEquals(500, myBank.checkBalanceViaBank("2334455660","2200"));
         assertEquals(1500, myBank.checkBalanceViaBank("2334455661","3030"));
+        assertEquals(0, myBank.checkBalanceViaBank("2334455662","3030"));
     }
 }
