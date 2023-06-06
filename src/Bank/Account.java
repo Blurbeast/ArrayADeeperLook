@@ -1,7 +1,6 @@
 package Bank;
 
 public class Account {
-//    if (account.getAccountNumber().equals(accountNumber)) account;
     private int amount;
     private final String password;
     private final String firstName;
@@ -14,6 +13,7 @@ public class Account {
     }
     public void deposit(int amount) {
        if (amount > 0) this.amount += amount;
+       else throw new IllegalArgumentException("Amount less than zero");
     }
     public int checkBalance(String password) {
         if (this.password.equals(password)) return amount;

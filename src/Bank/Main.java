@@ -16,8 +16,8 @@ public class Main {
     }
     private static void entryPoint(){
         bankingNote();
-        date_Time_And_Day_Of_The_Week();
         periodOfDay();
+        date_Time_And_Day_Of_The_Week();
         System.out.println();
         bankingFirm();
     }
@@ -32,19 +32,19 @@ public class Main {
             case "2" -> bankingOption();
             default -> bankingFirm();
         }
-        displayMessage("Welcome " );
         bankingOption();
     }
     private static void registerUser(){
         displayMessage("Kindly fill in the prompts below.\n");
         displayMessage("Enter first name: ");
         String firstName = input(userInput);
-        collectName(firstName);
         displayMessage("Enter last name: ");
         String lastName = input(userInput);
         displayMessage("Set Withdrawal Pin: ");
         String withdrawalPin = input(userInput);
         bank.registerNewCustomer(firstName, lastName, withdrawalPin);
+        displayMessage("Welcome ");
+        collectName(firstName+ "!");
     }
     private static void collectName(String option){
         displayMessage(option);
@@ -121,7 +121,7 @@ public class Main {
                 """);
     }
     private static void date_Time_And_Day_Of_The_Week() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd/MM/yyyy HH:mm:ssa \n");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE dd/MM/yyyy hh:mm:ssa \n");
         LocalDateTime current = LocalDateTime.now();
         displayMessage("Today is ");
         displayMessage(formatter.format(current));

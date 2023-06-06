@@ -66,4 +66,8 @@ public class AccountTest {
         myAccount.withdraw("1221", 500);
         assertEquals(0, myAccount.checkBalance("1111"));
     }
+//    @Test public void checkThrowableErrors(){
+//        assertEquals(0, myAccount.checkBalance("1111"));
+//        assertThrows(IllegalArgumentException,myAccount.deposit(-1000));
+//    }
 }
