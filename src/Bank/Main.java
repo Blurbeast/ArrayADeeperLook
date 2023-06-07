@@ -11,8 +11,6 @@ public class Main {
     private static final Scanner userInput = new Scanner(System.in);
     static Bank bank = new Bank();
     public static void main(String[] args) {
-        String nae = "Oladele";
-        out.println(nae.substring(0, nae.length()-1));
         entryPoint();
     }
     private static void displayMessage(String message){
@@ -38,23 +36,37 @@ public class Main {
         }
         bankingOption();
     }
-    private static void registerUser(){;
+    private static void registerUser(){
         date_Time_And_Day_Of_The_Week();
         displayMessage("Kindly fill in the prompts below.\n");
         displayMessage("Enter first name: ");
         String firstName = input(userInput);
         displayMessage("Enter last name: ");
         String lastName = input(userInput);
+        String withdrawalPin = validateWithdrawalPin();
+        bank.registerNewCustomer(firstName, lastName, withdrawalPin);
+        displayMessage("===Welcome ");
+        collectName(firstName.toUpperCase()+ "!==="+"\n");
+    }
+    private static String validateWithdrawalPin() {
         displayMessage("Set Withdrawal Pin: ");
         String withdrawalPin = input(userInput);
-        bank.registerNewCustomer(firstName, lastName, withdrawalPin);
-        displayMessage("Welcome ");
-        collectName(firstName+ "!");
+        withdrawalPin = validateWithdrawalPinLength(withdrawalPin);
+        return withdrawalPin;
+    }
+    private static String validateWithdrawalPinLength(String withdrawalPin) {
+        while (withdrawalPin.length() != 4) {
+            displayMessage("Pin should be 4 digit long\n");
+            displayMessage("Set Withdrawal Pin: ");
+            withdrawalPin = input(userInput);
+        }
+        return withdrawalPin;
     }
     private static void collectName(String option){
         displayMessage(option);
     }
     private static void bankingOption(){
+        date_Time_And_Day_Of_The_Week();
         displayMessage("""
                 \n
                 1 -> Deposit
@@ -75,6 +87,7 @@ public class Main {
         }
     }
     private static void checkBalance(){
+        date_Time_And_Day_Of_The_Week();
         displayMessage("Enter your Account Number: ");
         String accountDetails = input(userInput);
         displayMessage("Enter Access Pin: ");
@@ -82,6 +95,7 @@ public class Main {
         bank.checkBalanceViaBank(accountDetails,pin);
     }
     private static void depositing(){
+        date_Time_And_Day_Of_The_Week();
         displayMessage("Enter your account number: ");
         String accountDetails = input(userInput);
         displayMessage("Enter depositing amount: ");
@@ -93,6 +107,7 @@ public class Main {
 
     }
     private static void withdrawal(){
+        date_Time_And_Day_Of_The_Week();
         displayMessage("Enter your Account Number: ");
         String accountDetails = input(userInput);
         displayMessage("Enter Amount to Withdraw: ");
@@ -102,6 +117,7 @@ public class Main {
         bank.withdrawFromAccount(accountDetails,Integer.parseInt(amount), pin);
     }
     private static void transferring(){
+        date_Time_And_Day_Of_The_Week();
         displayMessage("Enter your Account Number: ");
         String accountDetails = input(userInput);
         displayMessage("Enter Receiver Account Number: ");
