@@ -103,9 +103,6 @@ public class Main {
         bank.depositToAccount(accountDetails,Integer.parseInt(amount));
         checkBalance();
     }
-    private static void depositCheckBalance(){
-
-    }
     private static void withdrawal(){
         date_Time_And_Day_Of_The_Week();
         displayMessage("Enter your Account Number: ");
