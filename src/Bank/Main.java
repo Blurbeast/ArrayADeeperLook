@@ -27,14 +27,20 @@ public class Main {
         displayMessage("""
                 1 -> Register account
                 2 -> Cash Transaction
+                3 -> Quit
                 """);
         String regAccount = input(userInput);
         switch (regAccount) {
             case "1" -> registerUser();
             case "2" -> bankingOption();
+            case "3" -> quit();
             default -> bankingFirm();
         }
         bankingOption();
+    }
+    private static void quit() {
+        out.println("Operation Stopped");
+        System.exit(1);
     }
     private static void registerUser(){
         date_Time_And_Day_Of_The_Week();
@@ -62,9 +68,7 @@ public class Main {
         }
         return withdrawalPin;
     }
-    private static void collectName(String option){
-        displayMessage(option);
-    }
+    private static void collectName(String option){displayMessage(option);}
     private static void bankingOption(){
         date_Time_And_Day_Of_The_Week();
         displayMessage("""
