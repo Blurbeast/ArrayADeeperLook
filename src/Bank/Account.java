@@ -17,7 +17,6 @@ public class Account {
     }
     public int checkBalance(String password) {
         if (this.password.equals(password)) return amount;
-
         return 0;
     }
     public void withdraw(String withdrawalPin, int amount) {

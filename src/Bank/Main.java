@@ -49,7 +49,7 @@ public class Main {
         collectName(firstName.toUpperCase()+ "!==="+"\n");
     }
     private static String validateWithdrawalPin() {
-        displayMessage("Set Withdrawal Pin: ");
+        displayMessage("Set pin: ");
         String withdrawalPin = input(userInput);
         withdrawalPin = validateWithdrawalPinLength(withdrawalPin);
         return withdrawalPin;
@@ -75,33 +75,37 @@ public class Main {
                 4 -> Check Balance
                 """);
         String option = input(userInput);
-        switch (option){
-            case "1": depositing();
-            case "2": withdrawal();
-            case "3": transferring();
-            case "4": checkBalance();
-            default: {
-                displayMessage("You entered an invalid input");
+        switch (option) {
+            case "1" -> depositing();
+            case "2" -> withdrawal();
+            case "3" -> transferring();
+            case "4" -> checkBalance();
+            default -> {
+                displayMessage("You entered an invalid input\n");
                 bankingOption();
             }
         }
     }
     private static void checkBalance(){
         date_Time_And_Day_Of_The_Week();
+        displayMessage("Enter the following details to check balance \n");
         displayMessage("Enter your Account Number: ");
         String accountDetails = input(userInput);
         displayMessage("Enter Access Pin: ");
-        String pin = input(userInput);
-        bank.checkBalanceViaBank(accountDetails,pin);
+        String pin = validateWithdrawalPin();
+        double balance = bank.checkBalanceViaBank(accountDetails, pin);
+        out.printf("%s%.2f","Your balance is ", balance);
     }
     private static void depositing(){
-        date_Time_And_Day_Of_The_Week();
-        displayMessage("Enter your account number: ");
-        String accountDetails = input(userInput);
-        displayMessage("Enter depositing amount: ");
-        String amount = input(userInput);
-        bank.depositToAccount(accountDetails,Integer.parseInt(amount));
-        checkBalance();
+            date_Time_And_Day_Of_The_Week();
+            displayMessage("Let Get Your Account Credited\n");
+            displayMessage("Enter your account number: ");
+            String accountDetails = input(userInput);
+            displayMessage("Enter depositing amount: ");
+            String amount = input(userInput);
+            bank.depositToAccount(accountDetails, Integer.parseInt(amount));
+            displayMessage("What would ");
+            checkBalance();
     }
     private static void withdrawal(){
         date_Time_And_Day_Of_The_Week();
@@ -158,6 +162,7 @@ public class Main {
 //        greetingOptions(greet);
         return greet;
     }
+}
 //    private static void greetingOptions(String greet) {
 //        switch (greet) {
 //            case "Good morning!" -> System.out.println("How are you doing today?");
@@ -165,4 +170,3 @@ public class Main {
 //            case "Good Evening!" -> System.out.println("How was your day?");
 //        }
 //    }
-}

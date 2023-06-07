@@ -1,6 +1,8 @@
 package Bank;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 public class Bank {
     private final List<Account> accounts = new ArrayList<>();
     public void registerNewCustomer(String firstName, String lastName, String withdrawalPin) {
@@ -18,7 +20,12 @@ public class Bank {
         }
     }
     private Account findAccountByAccountNumber(String accountNumber){
-        for (Account account : accounts) if (account.getAccountNumber().equals(accountNumber)) return account;
+        for (Account account : accounts) {
+            if (!Objects.equals(account.getAccountNumber(), accountNumber)) {
+                System.out.println("Account does not exist");
+            }
+            if (account.getAccountNumber().equals(accountNumber)) {return account;}
+        }
         return null;
     }
     public void withdrawFromAccount(String accountNumber, int amount, String pin) {
