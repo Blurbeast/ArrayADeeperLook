@@ -11,6 +11,10 @@ public class Account {
         this.lastName = lastName;
         this.password = password;
     }
+    private void set_Name(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     public void deposit(int amount) {
         if (amount > 0) this.amount += amount;
     }

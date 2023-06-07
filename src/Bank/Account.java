@@ -2,12 +2,12 @@ package Bank;
 
 public class Account {
     private int amount;
-    private final String password;
+    private String password;
     private final String firstName;
     private final String lastName;
     private String accountNumber;
     public Account(String firstName, String lastName, String password) {
-        this.password = password;
+        if (password.length() == 4) {this.password = password;}
         this.firstName = firstName;
         this.lastName = lastName;
     }

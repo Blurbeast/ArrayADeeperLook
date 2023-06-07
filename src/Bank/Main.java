@@ -5,20 +5,24 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
 public class Main {
     private static final Scanner userInput = new Scanner(System.in);
     static Bank bank = new Bank();
     public static void main(String[] args) {
+        String nae = "Oladele";
+        out.println(nae.substring(0, nae.length()-1));
         entryPoint();
     }
     private static void displayMessage(String message){
-        System.out.printf("%s", message);
+        out.printf("%s", message);
     }
     private static void entryPoint(){
         bankingNote();
         periodOfDay();
         date_Time_And_Day_Of_The_Week();
-        System.out.println();
+        out.println();
         bankingFirm();
     }
     private static void bankingFirm(){
@@ -34,7 +38,8 @@ public class Main {
         }
         bankingOption();
     }
-    private static void registerUser(){
+    private static void registerUser(){;
+        date_Time_And_Day_Of_The_Week();
         displayMessage("Kindly fill in the prompts below.\n");
         displayMessage("Enter first name: ");
         String firstName = input(userInput);

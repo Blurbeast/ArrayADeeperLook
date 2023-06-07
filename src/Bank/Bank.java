@@ -5,7 +5,7 @@ public class Bank {
     private final List<Account> accounts = new ArrayList<>();
     public void registerNewCustomer(String firstName, String lastName, String withdrawalPin) {
         String accountNumber = "233445566" + accounts.size();
-        Account account = new Account(firstName, lastName, withdrawalPin);
+        Account account = new Account(firstName.toUpperCase(), lastName.toUpperCase(), withdrawalPin);
         account.setAccountNumber(accountNumber);
         accounts.add(account);
     }

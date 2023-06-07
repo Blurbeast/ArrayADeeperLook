@@ -1,12 +1,8 @@
 package testRun;
-import Bank.Bank;
-
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 public class BankAccount {
     private final List<Account> accounts = new ArrayList<>();
-    private int count;
     public void registerCustomer(String firstName, String lastName, String password) {
         Account account = new Account(firstName,lastName, password);
         String accountNumber = "2233445566" + accounts.size();
