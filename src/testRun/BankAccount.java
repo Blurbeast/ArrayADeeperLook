@@ -37,13 +37,17 @@ public class BankAccount {
             System.out.println("Invalid Account");
         }
     }
-    public void withFromAccount(String accountNumber, int amount, String password) {
+    public void withdrawFromAccount(String accountNumber, int amount, String password) {
         checkAccount(accountNumber);
         Account account = findAccountByAccountNumber(accountNumber);
-        account.withdraw(password, amount);
+        if (checkBalance(accountNumber,password) >= amount && amount > 0) account.withdraw(password, amount);
+        else {
+            System.out.println("Invalid Amount");
+            System.exit(1);
+        }
     }
     public void transfer(String senderAccountNumber, String receiverAccountNumber, int amount, String password) {
-        withFromAccount(senderAccountNumber,amount, password);
+        withdrawFromAccount(senderAccountNumber,amount, password);
         deposit(receiverAccountNumber,amount);
     }
     public String accountInfo(){

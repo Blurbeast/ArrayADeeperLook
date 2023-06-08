@@ -196,7 +196,7 @@ public class Main {
                 String amount = contains();
                 displayMessage("Enter withdrawal pin: ");
                 String pin = validatePin();
-                bank.withFromAccount(accountNumber, Integer.parseInt(amount), pin);
+                bank.withdrawFromAccount(accountNumber, Integer.parseInt(amount), pin);
                 displayMessage("Withdrawal Successful");
                 continuity();
             }else {

@@ -39,7 +39,7 @@ public class BankAccountTest {
     @Test public void withdrawFromAccountThroughBank(){
         bankAccount.registerCustomer("firstName", "lastName","password");
         bankAccount.deposit("22334455660", 4000);
-        bankAccount.withFromAccount("22334455660", 3000, "password");
+        bankAccount.withdrawFromAccount("22334455660", 3000, "password");
         assertEquals(1000, bankAccount.checkBalance("22334455660", "password"));
     }
     @Test public void transferCanBeMadeFromOneExistingAccountToAnother(){
