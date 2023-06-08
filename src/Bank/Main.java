@@ -4,19 +4,24 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.Timer;
 
 import static java.lang.System.out;
 
 public class Main {
     private static final Scanner userInput = new Scanner(System.in);
     static Bank bank = new Bank();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i < 4;i ++) {
+            out.println(".");
+            Thread.sleep(2000);
+        }
         entryPoint();
     }
     private static void displayMessage(String message){
         out.printf("%s", message);
     }
-    private static void entryPoint(){
+    private static void entryPoint() {
         bankingNote();
         periodOfDay();
         date_Time_And_Day_Of_The_Week();
@@ -34,7 +39,7 @@ public class Main {
             case "1" -> registerUser();
             case "2" -> bankingOption();
             case "3" -> quit();
-            default -> bankingFirm();
+            //default -> bankingFirm();
         }
         bankingOption();
     }
@@ -86,30 +91,42 @@ public class Main {
             case "4" -> checkBalance();
             default -> {
                 displayMessage("You entered an invalid input\n");
-                bankingOption();
+                //bankingOption();
             }
         }
     }
     private static void checkBalance(){
-        date_Time_And_Day_Of_The_Week();
-        displayMessage("Enter the following details to check balance \n");
-        displayMessage("Enter your Account Number: ");
-        String accountDetails = input(userInput);
-        displayMessage("Enter Access Pin: ");
-        String pin = validateWithdrawalPin();
-        double balance = bank.checkBalanceViaBank(accountDetails, pin);
-        out.printf("%s%.2f","Your balance is ", balance);
-    }
-    private static void depositing(){
+        try {
             date_Time_And_Day_Of_The_Week();
-            displayMessage("Let Get Your Account Credited\n");
-            displayMessage("Enter your account number: ");
+            displayMessage("Enter the following details to check balance \n");
+            displayMessage("Enter your Account Number: ");
             String accountDetails = input(userInput);
-            displayMessage("Enter depositing amount: ");
-            String amount = input(userInput);
-            bank.depositToAccount(accountDetails, Integer.parseInt(amount));
-            displayMessage("What would ");
-            checkBalance();
+            displayMessage("Enter Access Pin: ");
+            String pin = validateWithdrawalPin();
+            double balance = bank.checkBalanceViaBank(accountDetails, pin);
+            out.printf("%s%.2f","Your balance is ", balance);
+        }catch (NullPointerException ex){
+            displayMessage(ex.getMessage());
+            displayMessage("Account no exist");
+            displayMessage("Back to main Menu ");
+            bankingFirm();
+        }
+        catch (IllegalArgumentException exception){
+            displayMessage(exception.getMessage());
+            displayMessage("Back to main Menu ");
+            bankingFirm();
+        }
+     }
+    private static void depositing(){
+        date_Time_And_Day_Of_The_Week();
+        displayMessage("Let Get Your Account Credited\n");
+        displayMessage("Enter your account number: ");
+        String accountDetails = input(userInput);
+        displayMessage("Enter depositing amount: ");
+        String amount = input(userInput);
+        bank.depositToAccount(accountDetails, Integer.parseInt(amount));
+//            displayMessage("What would ");
+//            checkBalance();
     }
     private static void withdrawal(){
         date_Time_And_Day_Of_The_Week();
@@ -163,7 +180,6 @@ public class Main {
         if (hour <= 12) greet ="Good morning! ";
         if (hour >= 12) greet = "Good Afternoon! ";
         if (hour >= 17) greet = "Good Evening! ";
-//        greetingOptions(greet);
         return greet;
     }
 }
