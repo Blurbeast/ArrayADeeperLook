@@ -69,10 +69,11 @@ public class Main {
         displayMessage("Account created Successfully!\n");
         displayMessage("Your Account Number is: " + bank.accountInfo());
         displayMessage("\n");
-        continuity();
+        insideBank();
+//        continuity();
     }
     public static void continuity() throws InterruptedException {
-        displayMessage("Would you like to continue? \n");
+        displayMessage("\nWould you like to continue? \n");
         displayMessage("""
                 1 -> Yes
                 2 -> No

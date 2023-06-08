@@ -20,7 +20,8 @@ public class Account {
     }
 
     public void withdraw(String pin,int amount) {
-        if (password.equals(pin)) this.amount -= amount;
+        if (this.amount >= amount) if (amount > 0) if (password.equals(pin)) this.amount -= amount;
+        else throw new IllegalArgumentException("Amount to be withdrawn not allowed");
     }
 
     public void setAccount(String accountNumber) {
