@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.Timer;
 
 import static java.lang.System.out;
 
@@ -89,10 +88,7 @@ public class Main {
             case "2" -> withdrawal();
             case "3" -> transferring();
             case "4" -> checkBalance();
-            default -> {
-                displayMessage("You entered an invalid input\n");
-                //bankingOption();
-            }
+            default -> displayMessage("You entered an invalid input\n");
         }
     }
     private static void checkBalance(){
@@ -125,8 +121,6 @@ public class Main {
         displayMessage("Enter depositing amount: ");
         String amount = input(userInput);
         bank.depositToAccount(accountDetails, Integer.parseInt(amount));
-//            displayMessage("What would ");
-//            checkBalance();
     }
     private static void withdrawal(){
         date_Time_And_Day_Of_The_Week();

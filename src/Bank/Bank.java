@@ -39,7 +39,11 @@ public class Bank {
     }
     public boolean itExist(String accountNumber){
         boolean status = false;
-        for (Account account : accounts) if (account.getAccountNumber().equals(accountNumber)) status =true;
+        for (Account account : accounts)
+            if (account.getAccountNumber().equals(accountNumber)) {
+                status = true;
+                break;
+            }
         return status;
     }
 }

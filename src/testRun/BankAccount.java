@@ -11,10 +11,6 @@ public class BankAccount {
         account.setAccount(this.accountNumber);
         accounts.add(account);
     }
-//    private String generateAccount(){
-//        String accountNumber = "2233445566";
-//        return  accountNumber + accounts.size();
-//    }
     public int size() {
         return accounts.size();
     }
