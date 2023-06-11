@@ -21,7 +21,7 @@ public class BankAccount {
     }
     public Account findAccountByAccountNumber(String accountNumber){
         for (Account account : accounts) if (account.getAccountNumber().equals(accountNumber)) return account;
-        return null;
+        throw new NullPointerException("Does not exist");
     }
     public int checkBalance(String accountNumber, String password) {
         Account account = findAccountByAccountNumber(accountNumber);

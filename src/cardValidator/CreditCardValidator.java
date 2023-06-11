@@ -7,7 +7,6 @@ public class CreditCardValidator {
         }
         else return "card valid";
     }
-
     public String cardType(String cardNumber) {
         if (cardNumber.startsWith("4")) return "Visa";
         else if (cardNumber.startsWith("5")) return "Master Card";
@@ -15,7 +14,6 @@ public class CreditCardValidator {
         else if (cardNumber.startsWith("6")) return "Discover card";
         else return "invalid card";
     }
-
     public String checkCardNumberValidity(String cardNumber) {
         int sumOfProductAndSum =0;
         String productOfNumber = "";
@@ -42,7 +40,6 @@ public class CreditCardValidator {
         }
         return sumOfOddPosition;
     }
-
     private static int getSumOfProduct(String productOfNumber, int sumOfProduct, int integerOfProductNumber) {
         for (int i = 0; i < productOfNumber.length(); i++){
             int remainder = integerOfProductNumber %10;
@@ -59,19 +56,16 @@ public class CreditCardValidator {
         }
         return sumOfProduct;
     }
-
     private static String getNumberOnOddPosition(String cardNumber, String numberOnOddPosition) {
         for (int index = cardNumber.length() -1; index>=0; index-=2){
             numberOnOddPosition = numberOnOddPosition + cardNumber.charAt(index);}
         return numberOnOddPosition;
     }
-
     private static String getProductOfNumber(String cardNumber, String productOfNumber) {
         for (int index = cardNumber.length()-2; index >= 0; index-=2) {
             productOfNumber = productOfNumber + cardNumber.charAt(index);}
         return productOfNumber;
     }
-
     public int checkNumberLength(String cardNumber) {
         return cardNumber.length();
     }

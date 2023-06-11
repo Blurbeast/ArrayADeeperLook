@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.testng.Assert.assertThrows;
 
 public class BankAccountTest {
     BankAccount bankAccount;
@@ -35,6 +36,7 @@ public class BankAccountTest {
         bankAccount.registerCustomer("firstName", "lastName","password");
         bankAccount.deposit("22334455660", 4000);
         assertEquals(0, bankAccount.checkBalance("22334455660", "2222"));
+        assertThrows(NullPointerException.class, ()->bankAccount.deposit("1233",56));
     }
     @Test public void withdrawFromAccountThroughBank(){
         bankAccount.registerCustomer("firstName", "lastName","password");

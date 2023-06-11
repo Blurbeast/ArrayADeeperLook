@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
-
-
 public class Main {
     private  static final Scanner userInput = new Scanner(System.in);
     private static final BankAccount bank = new BankAccount();
@@ -13,18 +11,23 @@ public class Main {
         entryPoint();
     }
     private static void bankingFirm() throws InterruptedException {
-        displayMessage("""
-                1 -> Register account
-                2 -> Cash Transaction
-                3 -> Quit
-                """);
-        displayMessage("Input choice here: ");
-        String option = input(userInput);
-        switch (option.charAt(0)) {
-            case '1' -> registerCustomer();
-            case '2' -> insideBank();
-            case '0' -> System.exit(99);
-            default -> bankingFirm();
+        try {
+            displayMessage("""
+                    1 -> Register account
+                    2 -> Cash Transaction
+                    3 -> Quit
+                    """);
+            displayMessage("Input choice here: ");
+            String option = input(userInput);
+            switch (option.charAt(0)) {
+                case '1' -> registerCustomer();
+                case '2' -> insideBank();
+                case '0' -> System.exit(99);
+                default -> bankingFirm();
+            }
+        }catch (StringIndexOutOfBoundsException exception){
+            displayMessage("You have enter no input. kindly start over.\n");
+            bankingFirm();
         }
     }
     private static void insideBank() throws InterruptedException {
@@ -61,8 +64,10 @@ public class Main {
         displayMessage("\n===New Customer Window===\n");
         displayMessage("Enter first name: ");
         String firstName = input(userInput);
+        emptyInput(firstName);
         displayMessage("Enter last name: ");
         String lastName = input(userInput);
+        emptyInput(lastName);
         displayMessage("Enter a strong password: ");
         String password = validatePin();
         bank.registerCustomer(firstName,lastName, password);
@@ -70,7 +75,6 @@ public class Main {
         displayMessage("Your Account Number is: " + bank.accountInfo());
         displayMessage("\n");
         insideBank();
-//        continuity();
     }
     public static void continuity() throws InterruptedException {
         displayMessage("\nWould you like to continue? \n");
@@ -178,9 +182,9 @@ public class Main {
     private static void generateDelay() throws InterruptedException {
         displayMessage("Loading, please wait");
         for (int index = 0; index < 3; index++) {
-            Thread.sleep(1000);
-            System.out.print(".");
-            Thread.sleep(1000);
+            Thread.sleep(700);
+            displayMessage(".");
+            Thread.sleep(700);
         }
     }
     private static void withdraw() throws InterruptedException {
@@ -212,8 +216,8 @@ public class Main {
     private static boolean checker(String accountNumber){
         return bank.isTrue(accountNumber);
     }
-    private static String validatePin() {
-        String pin = input(userInput);
+    private static String validatePin() throws InterruptedException {
+        String pin = contains();
         while (pin.length() != 4){
             displayMessage("Incorrect Entry, Pin Should be 4 digits long\n");
             displayMessage("Enter pin: ");
@@ -247,7 +251,7 @@ public class Main {
     }
     private static String hourDecider(int hour) {
         String greet = "";
-        if (hour <= 12) greet ="Good morning! ";
+        if (hour < 12) greet ="Good morning! ";
         if (hour >= 12) greet = "Good Afternoon! ";
         if (hour >= 17) greet = "Good Evening! ";
         return greet;
