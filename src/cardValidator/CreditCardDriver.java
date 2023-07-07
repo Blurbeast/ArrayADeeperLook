@@ -18,7 +18,6 @@ public class CreditCardDriver {
             System.out.println("Enter card number again: ");
             userChoice = userInput.next();
         }
-
         System.out.println("Credit Card Type: " + cardValidator.cardType(userChoice));
         System.out.println("Credit card Number: " + userChoice);
         System.out.println("Credit Card Digit Length: " + cardValidator.checkNumberLength(userChoice));
