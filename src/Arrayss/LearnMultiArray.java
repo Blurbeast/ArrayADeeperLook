@@ -34,7 +34,6 @@ public class LearnMultiArray {
 
     public int[] checkColumnResult() {
         for (int index = 0; index < array.length; index++) {
-
         }
         return columnResultAverage;
     }
